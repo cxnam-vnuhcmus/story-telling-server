@@ -16,8 +16,6 @@ const app = express();
 
 app.use('/uploads', cors(), express.static('uploads'));
 
-mongoose.connect(process.env.DATABASE).then(()=>console.log('DB Connected'))
-
 app.use(cors())
 app.use(cookieParser()); 
 app.use(bodyParser.urlencoded({ extended: false }))
