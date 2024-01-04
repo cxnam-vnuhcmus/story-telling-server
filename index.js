@@ -5,23 +5,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 
-const Auth = require('./routes/auth')
-const UserRoute = require('./routes/user')
-const Voice = require('./routes/voice');
-const Genre = require('./routes/genre');
-const Stories = require('./routes/stories'); 
-const Wishlist = require('./routes/wishlist'); 
-const Playlist = require('./routes/playlist')
 const app = express(); 
-
-app.use('/uploads', cors(), express.static('uploads'));
-
-app.use(cors())
-app.use(cookieParser()); 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-
-
 const port = process.env.PORT || 8001;
 
 app.use('/api', Auth); 
