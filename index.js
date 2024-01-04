@@ -13,6 +13,18 @@ const Stories = require('./routes/stories');
 const Wishlist = require('./routes/wishlist'); 
 const Playlist = require('./routes/playlist');
 const app = express(); 
+
+require('dotenv').config();
+
+app.use('/uploads', cors(), express.static('uploads'));
+
+mongoose.connect(process.env.DATABASE).then(()=>console.log('DB Connected'))
+
+app.use(cors())
+app.use(cookieParser()); 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 const port = process.env.PORT || 8001;
 
 app.get('/', function(req, res) {
