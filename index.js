@@ -18,7 +18,7 @@ require('dotenv').config();
 
 app.use('/uploads', cors(), express.static('uploads'));
 
-mongoose.connect(process.env.DATABASE).then(()=>console.log('DB Connected'))
+mongoose.connect('mongodb+srv://btlam20:SY4VdOVnVeDhoeke@storiestelling.fhfvgrl.mongodb.net/?retryWrites=true&w=majority').then(()=>console.log('DB Connected'))
 
 app.use(cors())
 app.use(cookieParser()); 
