@@ -1,8 +1,6 @@
 const express = require ('express');
 const mongoose = require('mongoose');
 const router = express.Router() 
-const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser')
 
 const Auth = require('./routes/auth')
 const UserRoute = require('./routes/user')
