@@ -1,6 +1,6 @@
 // storyController.js
 const Story = require("../models/stories");
-const { exec } = require('child_process'); // Cập nhật đường dẫn nếu cần
+// const { exec } = require('child_process'); // Cập nhật đường dẫn nếu cần
 
 const addStory = async (req, res) => {
   try {
