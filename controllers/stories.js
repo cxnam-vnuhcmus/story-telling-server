@@ -38,9 +38,10 @@ const addStory = async (req, res) => {
 
 const getAllStories = async (req, res) => {
   try {
-    const stories = await Story.find();
-    Story.find().populate("genre").exec();
-    res.send(stories);
+    return res.status(200).send('No image file provided');
+    // const stories = await Story.find();
+    // Story.find().populate("genre").exec();
+    // res.send(stories);
   } catch (error) {
     res.status(500).send(error.message);
   }
