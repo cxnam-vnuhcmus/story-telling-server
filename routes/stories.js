@@ -59,18 +59,18 @@ const defaultStorageAudio = multer.diskStorage({
       },
 });
 
-// const defualtUpload = multer({ storage: defaultStorageAudio });
-// const audiosUpload = multer({ storage: audiosStorage });
-// const upload = multer({ storage: storage });
+const defualtUpload = multer({ storage: defaultStorageAudio });
+const audiosUpload = multer({ storage: audiosStorage });
+const upload = multer({ storage: storage });
 
 router.patch('/stories/:id/toggle-active', storyController.activeStory);
-// router.post('/create-stories', upload.single('imageUrl'), storyController.addStory);
+router.post('/create-stories', upload.single('imageUrl'), storyController.addStory);
 router.get('/getAll-stories', storyController.getAllStories);
 router.get('/get-stories/:id', storyController.getStory);
-// router.put('/update-stories/:id', upload.single('imageUrl'), storyController.updateStory);
+router.put('/update-stories/:id', upload.single('imageUrl'), storyController.updateStory);
 router.delete('/delete-stories/:id', storyController.deleteStory);
-// router.post('/stories/:storyId/upload-audio', audiosUpload.single('audioFile'), storyController.uploadUserAudio);
-// router.post('/stories/:storyId/upload-default', defualtUpload.single('audioFile'), storyController.uploadDefaultAudio);
+router.post('/stories/:storyId/upload-audio', audiosUpload.single('audioFile'), storyController.uploadUserAudio);
+router.post('/stories/:storyId/upload-default', defualtUpload.single('audioFile'), storyController.uploadDefaultAudio);
 
 
 
