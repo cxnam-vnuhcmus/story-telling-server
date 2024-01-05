@@ -27,21 +27,20 @@ exports.signup = async (req, res) => {
 
 exports.signin = async (req, res) => {
     try {
-      return res.status(200).send("Email does not match!");
-      // const {email, password} = req.body;
-      // const user = await User.findOne({ email });
-      // if (!user) {
-      //   return res.status(401).send("Email does not match!");
-      // }
+      const {email, password} = req.body;
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(401).send("Email does not match!");
+      }
   
-      // const isMatch = await bcrypt.compare(password, user.password);
-      // if (!isMatch) {
-      //   return res.status(401).send("Password does not match!");
-      // }
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(401).send("Password does not match!");
+      }
 
-      // // create jsonwebtoken
-      // const token = jwt.sign({userId: user._id, role:user.role},process.env.JWT_SECRET_ACCESS, {expiresIn:"3d"});
-      // res.status(200).json({user,token});
+      // create jsonwebtoken
+      const token = jwt.sign({userId: user._id, role:user.role},process.env.JWT_SECRET_ACCESS, {expiresIn:"3d"});
+      res.status(200).json({user,token});
       
     } catch (error) {
 
